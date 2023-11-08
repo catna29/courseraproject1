@@ -1,0 +1,272 @@
+*{
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+}
+
+:root{
+    --main-color: rgb(253, 245, 226);
+    --second-color: rgb(245, 235, 125);
+    --third-color:rgb(196, 83, 58);
+    --black:black;
+    --button-color: rgb(115, 208, 115);
+}
+  
+.logo {  
+    padding: 10px;
+    text-align: center;
+    background-color: antiquewhite;
+  }
+
+.logo img{
+    max-width: 300px;
+  }
+
+.sidebar{
+    display: flex;
+    justify-content: space-between;
+    background: var(--second-color);
+    padding: 20px;
+    
+}
+
+.sidebar a{
+    color: var(--black);
+    text-decoration: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+}
+
+.sidebar a.active{
+    background: var(--main-color);
+    color: var(--black);
+    
+}
+
+.sidebar a:hover{
+    background: var(--main-color);
+    color: var(--black);
+}
+
+
+.sidebar .btn{
+    background: var(--main-color);
+}
+
+main{
+    display: grid;
+    max-width: 100%;
+    min-height: 100vh;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "head head head" "article article article" "foot foot foot";
+
+}
+header { grid-area: head;}
+article { grid-area: article;}
+footer { grid-area: foot;}
+  
+
+
+/*header*/
+header{
+    padding: 30px;
+    background: var(--third-color);
+    text-align: center;
+    color: var(--main-color);
+
+}
+
+/*article part*/
+article{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: antiquewhite;
+
+}
+
+article > div{
+    margin: 20px 0px;
+    padding: 15px;
+}
+
+article h4{
+    padding-top: 30px ;
+    padding-bottom: 15px;
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+article .article-product span{
+    color: var(--third-color);
+}
+
+article .article-hours p{
+    padding-left: 20px;
+}
+
+article .article-book {
+    text-align: center;
+}
+
+article button{
+    color: var(--main-color);
+    background: var(--button-color);
+    border-radius: 5px;
+    padding: 7px 70px;
+}
+
+article button:hover{
+    background: rgb(68, 138, 68);
+}
+
+article .article-book{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+}
+
+article .article-book img{
+    max-width: 300px;
+    padding: 10px;
+}
+
+.product-card{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+}
+
+.title-card{
+    padding: 0px;
+    margin: 0px;
+}
+
+.card-group{
+    max-width: 1260;
+    display: flex;
+    column-gap: 16px;;
+    overflow-x: scroll;
+    padding: 40px 100px;
+    
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    box-shadow: -16px 0 15px rgba(0, 0, 0, 0.3);
+    transition: transform 250ms;
+
+}
+.card button{
+    width: 180px;
+    height: 250px;
+    background-size: cover;
+    border: none;
+    border-radius: 0px;
+}   
+
+.card .bronze{
+    background-image: url(hairday/bronze.jpg);
+}
+
+
+.card .dark{
+    background-image: url(hairday/black.jpg);
+}
+
+.card .brown{
+    background-image: url(hairday/brown.jpg);
+}
+
+.card .red{
+    background-image: url(hairday/red.jpg);
+}
+
+.card .darkBrown{
+    background-image: url(hairday/darkbrown.jpg);
+}
+
+.card:not(:first-child){
+    margin-left: -130px;
+}
+
+.card:hover{
+    transform: translate(-8px, -16px) rotate(3deg); 
+}
+
+.card button:hover{
+    background-size: cover;
+    font-size: 25px;
+    
+}
+
+.card:hover ~.card{
+    transform: translateX(30px);
+}
+
+
+/*footer*/
+footer {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    width: 100%;
+    background: var(--third-color);
+    color: var(--main-color);
+    text-align: center;
+    padding: 30px 30px;
+}
+
+footer p{
+    font-size: 12px;
+}
+footer .detail{
+    flex-grow: 2
+}
+
+footer .address{
+    display: flex;
+    gap: 7px;
+
+}
+
+footer .phone{
+    display: flex;
+    gap: 7px;
+}
+
+@media (max-width: 576px) {
+    *{
+        font-size: 13px;
+    }
+
+    main {
+      grid-template-columns: 150px 1fr 150px;
+      grid-template-rows: auto 1fr auto;
+      grid-template-areas: "head head head" "article article article" "foot foot foot";
+    }
+
+    article h4{
+        padding-top: 0px ;
+        padding-bottom: 0px;
+        font-size: 15px;
+    }
+
+    footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+  } 
